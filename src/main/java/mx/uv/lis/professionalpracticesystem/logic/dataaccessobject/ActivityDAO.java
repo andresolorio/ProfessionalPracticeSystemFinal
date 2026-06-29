@@ -29,6 +29,10 @@ public class ActivityDAO implements IActivityDAO {
     public ActivityDAO() {
         this.databaseConnection = new DatabaseConnection();
     }
+    
+    public ActivityDAO(DatabaseConnection databaseConnection) {
+        this.databaseConnection = databaseConnection;
+    }
 
     @Override
     public int registerActivity(ActivityDTO activity) throws DataIntegrityException, DatabaseSystemException {
