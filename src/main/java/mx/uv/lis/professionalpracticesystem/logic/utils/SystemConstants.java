@@ -461,4 +461,231 @@ public final class SystemConstants {
             
     public static final LocalDate AGO_ENE_START_DATE = LocalDate.of(2026, 8, 1);
     public static final LocalDate AGO_ENE_END_DATE = LocalDate.of(2027, 1, 31);
+    
+    //Test 
+    public static final String TEST_STAFF_NUMBER = "999999";
+    public static final String TEST_EMAIL = "professor.test@uv.mx";
+    public static final String TARGET_REPORT_TYPE = "Mensual";
+    public static final String NEW_REPORT_TYPE = "Parcial";
+    public static final int EXPECTED_ROWS_INSERTED = 1;
+    public static final int EXPECTED_ROWS_UPSERTED = 2;
+    public static final int FIRST_ELEMENT_INDEX = 0;
+    public static final int TEST_NRC = 12345;
+    public static final int TEST_YEAR = 2026;
+    public static final int TEST_MAX_HOUR = 23;
+    public static final int TEST_MAX_MINUTE = 59;
+    public static final int TEST_MAX_SECOND = 59;
+    
+    public static final String TEST_DOC_ENROLLMENT = "S24099999";
+    public static final String TEST_DOC_EMAIL = "doc.test@uv.mx";
+    public static final String TEST_DOC_NAME_TARGET = "JUnit_Target_Doc.pdf";
+    public static final String TEST_DOC_NAME_NEW = "JUnit_New_Doc.pdf";
+    public static final String TEST_DOC_NAME_UPDATED = "JUnit_Updated_Doc.pdf";
+    public static final String TEST_DOC_TYPE_TARGET = "Parcial";
+    public static final String TEST_DOC_TYPE_NEW = "Final";
+    
+    public static final int EXPECTED_SINGLE_ROW_AFFECTED = 1;
+    public static final int TEST_MONTH_JUNE = 6;
+    public static final int TEST_DAY_FIFTEEN = 15;
+    
+    public static final byte[] TEST_DUMMY_BYTES = new byte[]{1, 2, 3};
+    
+    public static final int TEST_EE_NRC_TARGET = 80001;
+    public static final int TEST_EE_NRC_NEW = 80002;
+    public static final String TEST_EE_NRC_TARGET_STRING = "80001";
+    public static final String TEST_EE_NRC_NON_EXISTENT = "99999";
+    public static final String TEST_EE_NAME_TARGET = "Diseño de Software";
+    public static final String TEST_EE_NAME_NEW = "Pruebas de Software";
+    public static final String TEST_EE_NAME_UPDATED = "Arquitectura de Software";
+    public static final String TEST_EE_SECTION = "Matutino";
+    public static final String TEST_EE_STAFF_NUMBER = "777777";
+    public static final String TEST_EE_PROFESSOR_EMAIL = "asanchezzprof@uv.mx";
+    public static final String INVALID_NRC_STRING = "ABC";
+    public static final String EXPECTED_FULL_PROFESSOR_NAME = "JUnit Teacher ";
+    
+    public static final String TEST_CRITERION_STATEMENT = "JUnit Target Criterion Statement";
+
+    public static final String TEST_EVAL_ENROLLMENT = "S24099997";
+    public static final String TEST_EVAL_EMAIL = "eval.ov@uv.mx";
+    public static final int TEST_EVAL_ORG_ID = 9999;
+    public static final String TEST_EVAL_ORG_NAME = "JUnit Org";
+    public static final float TEST_EVAL_SCORE = 9.5f;
+    public static final String TEST_EVAL_FILE_PATH = "docs/evaluacion_test.pdf";
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: LINKED ORGANIZATION CONTROLLER ---
+    public static final String TEST_LOC_ORG_TARGET = "LOC Target Org";
+    public static final String TEST_LOC_ORG_NEW = "LOC New Org";
+    public static final String TEST_LOC_ORG_UPDATED = "LOC Updated Org";
+    public static final String TEST_LOC_ADDRESS = "Avenida LOC 123";
+    public static final String TEST_LOC_PHONE_VALID = "2281234567";
+    public static final String TEST_LOC_PHONE_INVALID = "228123";
+    public static final String TEST_LOC_CITY = "Xalapa";
+    public static final String TEST_LOC_EMAIL_VALID = "contacto@loc.mx";
+    public static final String TEST_LOC_EMAIL_INVALID = "contacto@loc";
+    
+    public static final String TEST_ORG_NAME_TARGET = "JUnitt Target Corp";
+    public static final String TEST_ORG_NAME_NEW = "JUnit New Enterprise";
+    public static final String TEST_ORG_NAME_UPDATED = "JUnit Updated Solutions";
+    public static final String TEST_ORG_ADDRESS = "Avenida Testing 123";
+    public static final String TEST_ORG_PHONE = "2281234567";
+    public static final String TEST_ORG_PHONE_INVALID = "123";
+    public static final String TEST_ORG_CITY = "Xalapa";
+    public static final String TEST_ORG_EMAIL = "contacto@junitcorp.mx";
+    public static final String TEST_ORG_EMAIL_INVALID = "contacto_sin_arroba.mx";
+    public static final int TEST_ORG_DIRECT_USERS = 50;
+    public static final int TEST_ORG_INDIRECT_USERS = 200;
+
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: ACTIVIDADES ---
+    public static final String TEST_ACTIVITY_NAME_TARGET = "JUnit Target Activity";
+    public static final String TEST_ACTIVITY_NAME_NEW = "JUnit Insertion Activity";
+    public static final String TEST_ACTIVITY_NAME_UPDATED = "JUnit Updated Activity";
+    public static final String TEST_ACTIVITY_DESC_TARGET = "Initial Verification Description";
+    public static final String TEST_ACTIVITY_DESC_NEW = "Testing Linear Insertion Script";
+    public static final String TEST_ACTIVITY_DESC_UPDATED = "Testing Linear Update Script";
+    public static final int TEST_PROJECT_ID = 1;
+    public static final int NON_EXISTENT_ID = -1;
+    public static final int TEST_DAY_THIRTY = 30;
+    public static final String TEST_NAME_EXCEEDING_LENGTH = "Esta es una cadena generada artificialmente con el unico proposito de exceder el limite maximo de cien caracteres permitido en la validacion del controlador para lanzar la excepcion correspondiente.";
+
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: ENTREGABLES DE REPORTE FINAL ---
+    public static final String TEST_FRD_ENROLLMENT = "S24099995";
+    public static final String TEST_FRD_EMAIL = "frd.student@uv.mx";
+    public static final String TEST_FRD_NON_EXISTENT_ENROLLMENT = "S00000000";
+    public static final String TEST_FRD_RESULT_TARGET = "JUnit Target Deliverable";
+    public static final String TEST_FRD_RESULT_NEW = "JUnit New Deliverable";
+    public static final int TEST_FRD_ADVANCE_TARGET = 50;
+    public static final int TEST_FRD_ADVANCE_NEW = 100;
+    public static final String TEST_FRD_OBSERVATIONS = "Prueba de insercion de entregables";
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: PROFESORES ---
+    public static final String TEST_PROF_STAFF_TARGET = "111111";
+    public static final String TEST_PROF_STAFF_NEW = "222222";
+    public static final String TEST_PROF_STAFF_INACTIVE = "333333";
+    public static final String TEST_PROF_STAFF_NON_EXISTENT = "000000";
+    public static final String TEST_PROF_EMAIL_TARGET = "prof.target@uv.mx";
+    public static final String TEST_PROF_EMAIL_NEW = "prof.new@uv.mx";
+    public static final String TEST_PROF_EMAIL_INACTIVE = "prof.inactive@uv.mx";
+    public static final String TEST_PROF_FIRST_NAME = "JUnitName";
+    public static final String TEST_PROF_PATERNAL = "JUnitPaternal";
+    public static final String TEST_PROF_MATERNAL = "JUnitMaternal";
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: PROYECTOS Y ASIGNACIONES ---
+    public static final String TEST_PROJECT_NAME_TARGET = "JUnit Target Project";
+    public static final String TEST_PROJECT_NAME_NEW = "JUnit New Project";
+    public static final String TEST_PROJECT_NAME_UPDATED = "JUnit Updated Project";
+    public static final String TEST_PROJECT_DESC = "JUnit Project Description";
+    public static final String TEST_PROJECT_METHODOLOGY = "Scrum Modular";
+    public static final String TEST_PROJECT_OBJ_GEN = "General Objective";
+    public static final String TEST_PROJECT_OBJ_IMM = "Immediate Objective";
+    public static final String TEST_PROJECT_OBJ_MED = "Mediated Objective";
+    public static final String TEST_PROJECT_RESPONSIBILITIES = "Develop and test";
+    public static final String TEST_PROJECT_RESOURCES = "Laptop, IDE";
+    public static final String TEST_PROJECT_DURATION = "400 horas";
+    public static final int TEST_PROJECT_VACANCIES = 3;
+
+    // Dependencias de llaves foráneas para Proyecto
+    public static final int TEST_PROJECT_ORG_ID = 9998;
+    public static final String TEST_PROJECT_ORG_NAME = "JUnit Project Org";
+    public static final int TEST_PROJECT_RESP_ID = 9998;
+
+    // Dependencias para métodos de asignación y solicitud
+    public static final String TEST_PROJECT_STUDENT_ENROLLMENT = "S24099994";
+    public static final String TEST_PROJECT_STUDENT_EMAIL = "proj.student@uv.mx";
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: PROFESSOR CONTROLLER (ORQUESTADOR) ---
+    public static final String TEST_PC_STAFF_TARGET = "555555";
+    public static final String TEST_PC_EMAIL_TARGET = "prof.ctrl@uv.mx";
+    public static final String TEST_PC_STUDENT_ENROLLMENT = "S24099993";
+    public static final String TEST_PC_STUDENT_EMAIL = "prof.student@uv.mx";
+    public static final String TEST_PC_REPORT_TYPE = "Parcial";
+    public static final String TEST_PC_REPORT_STATUS_APPROVED = "Aprobado";
+    public static final String TEST_PC_REPORT_STATUS_REJECTED = "Rechazado";
+    public static final String TEST_PC_OBSERVATIONS = "Faltan firmas";
+    public static final int TEST_PC_PROJECT_ID = 500;
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: REPORT CONTROLLER ---
+    public static final String TEST_RC_ENROLLMENT = "S24099992";
+    public static final String TEST_RC_STUDENT_EMAIL = "report.ctrl@uv.mx";
+    public static final String TEST_RC_STAFF_NUMBER = "444444";
+    public static final String TEST_RC_PROF_EMAIL = "prof.report.ctrl@uv.mx";
+    public static final String TEST_RC_REPORT_TYPE = "Parcial";
+    public static final String TEST_RC_INVALID_ENROLLMENT = "12345";
+    public static final String TEST_RC_INVALID_STATUS = "Indefinido";
+    public static final String TEST_RC_STATUS = "A tiempo";
+    public static final int TEST_RC_REPORTED_HOURS = 40;
+    public static final int TEST_RC_REPORT_NUMBER = 1;
+    public static final int NEGATIVE_HOURS = -5;
+    public static final String STATUS_APPROVED = "Aprobado";
+    // Arreglo vacío de bytes para simular archivos nulos
+    public static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: RESPONSABLE DE PROYECTO ---
+    public static final String TEST_RP_FIRST_NAME_TARGET = "JUnit Target Resp";
+    public static final String TEST_RP_FIRST_NAME_NEW = "JUnit New Resp";
+    public static final String TEST_RP_FIRST_NAME_UPDATED = "JUnit Updated Resp";
+    public static final String TEST_RP_LAST_NAME = "JUnit LastName";
+    public static final String TEST_RP_POSITION = "Gerente IT";
+    
+    // Cadena ultra larga para exceder el límite de caracteres del cargo o nombre
+    public static final String TEST_STRING_EXCEEDING_LIMIT = "Esta es una cadena generada artificialmente con el unico proposito de exceder el limite maximo de caracteres permitido en la validacion del controlador para lanzar la excepcion correspondiente.";
+    
+    public static final int TEST_RP_ORG_ID = 9997;
+    public static final String TEST_RP_ORG_NAME = "JUnit Resp Org";
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: SELF EVALUATION CONTROLLER ---
+    public static final String TEST_SEC_ENROLLMENT = "S24099991";
+    public static final String TEST_SEC_STUDENT_EMAIL = "sec.student@uv.mx";
+    public static final int TEST_SEC_ORG_ID = 9996;
+    public static final String TEST_SEC_ORG_NAME = "JUnit SEC Org";
+    public static final int TEST_SEC_PROJECT_ID = 600;
+    public static final String TEST_SEC_PROJECT_NAME = "JUnit SEC Project";
+    public static final int TEST_SEC_CRITERION_ID = 1;
+    public static final int TEST_SEC_CRITERION_SCORE = 5;
+    public static final String TEST_SEC_INVALID_ENROLLMENT = "S00000000";
+
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: STUDENT CONTROLLER ---
+    public static final String TEST_STC_ENROLLMENT = "S24099990";
+    public static final String TEST_STC_STUDENT_EMAIL = "student.ctrl@uv.mx";
+    public static final String TEST_STC_STAFF_NUMBER = "666666";
+    public static final String TEST_STC_PROF_EMAIL = "prof.stc@uv.mx";
+    public static final int TEST_STC_NRC = 88888;
+    public static final String TEST_STC_DOC_TYPE = "Carta de Aceptación";
+    public static final String TEST_STC_REPORT_TYPE = "Mensual";
+    public static final int TEST_STC_REPORT_NUMBER = 1;
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: USER CONTROLLER ---
+    public static final String TEST_UC_STUDENT_EMAIL = "student.uc@uv.mx";
+    public static final String TEST_UC_INACTIVE_STUDENT_EMAIL = "inactive.uc@uv.mx";
+    public static final String TEST_UC_PROFESSOR_EMAIL = "prof.uc@uv.mx";
+    public static final String TEST_UC_NEW_PROFESSOR_EMAIL = "new.prof.uc@uv.mx";
+    public static final String TEST_UC_STUDENT_ENROLLMENT = "S24099989";
+    public static final String TEST_UC_INACTIVE_ENROLLMENT = "S24099988";
+    public static final String TEST_UC_STAFF_NUMBER = "777777";
+    public static final String TEST_UC_NEW_STAFF_NUMBER = "888888";
+    public static final String TEST_UC_PASSWORD_PLAIN = "password123";
+    public static final String TEST_UC_PASSWORD_WRONG = "wrongpass";
+    public static final String TEST_UC_RECOVERY_TOKEN = "TESTT1";
+    
+    // Hash BCrypt real de la palabra "password123" para pasar la validación del PasswordManager
+    public static final String TEST_UC_HASHED_PASSWORD = "$2a$10$wYQ.P4L5O92T5O3lE5nL9u7F9yZ0u9j.V1n.8g10vV2/4O085.1qS";
+    
+    // --- CONSTANTES PARA PRUEBAS UNITARIAS: PROJECT REQUEST DAO ---
+    public static final String TEST_PR_ENROLLMENT = "S24099980";
+    public static final String TEST_PR_STUDENT_EMAIL = "pr.student@uv.mx";
+    public static final int TEST_PR_PROJECT_ID = 700;
+    public static final String TEST_PR_PROJECT_NAME = "JUnit PR Project";
+    public static final int TEST_PR_ORG_ID = 9995;
+    public static final String TEST_PR_ORG_NAME = "JUnit PR Org";
+    
+    // Valores de validación para la prioridad de solicitudes
+    public static final int TEST_PR_VALID_PRIORITY = 1;
+    public static final int TEST_PR_INVALID_PRIORITY_LOW = 0;
+    public static final int TEST_PR_INVALID_PRIORITY_HIGH = 4;
+    
+    // Constantes para validación de base de datos
+    public static final int TEST_PR_NON_EXISTENT_PROJECT_ID = 9999;
+    public static final int EXPECTED_STATE_TRUE = 1;
+    public static final int EXPECTED_STATE_FALSE = 0;
 }
