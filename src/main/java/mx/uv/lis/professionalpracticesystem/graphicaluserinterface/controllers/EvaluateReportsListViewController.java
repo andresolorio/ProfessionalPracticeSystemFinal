@@ -3,6 +3,7 @@ package mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import static java.util.Collections.sort;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -135,20 +136,20 @@ public class EvaluateReportsListViewController implements Initializable {
     public void handleLoadReportsSuccess(List<ReportDTO> reports) {
         this.masterReportsList = reports;
         this.rowsMasterCachedList.clear();
-        Set<String> uniqueNrcs = new HashSet<>();
-        uniqueNrcs.add("Todos");
+        Set<String> uniqueCourses = new HashSet<>();
+        uniqueCourses.add("Todos");
 
         for (ReportDTO report : this.masterReportsList) {
             ReportCustomRow row = new ReportCustomRow(report);
             try {
                 StudentDTO student = this.studentDAO
-                        .getStudentByEmail(report.getStudentEnrollment());
+                        .getStudentByEnrollment(report.getStudentEnrollment());
                 if (student != null) {
-                    String nrcString = String.valueOf(student.getNrc());
-                    row.setNrc(nrcString);
+                    row.setNrc(String.valueOf(student.getNrc()));
                 }
             } catch (DatabaseSystemException exception) {
-                LOGGER.log(Level.WARNING, "Failed to join student NRC correlation.");
+                LOGGER.log(Level.WARNING, "Failed to join student "
+                        + "NRC correlation via sequential enrollment link.");
             }
             this.rowsMasterCachedList.add(row);
         }
@@ -156,23 +157,20 @@ public class EvaluateReportsListViewController implements Initializable {
         String professorEmail = UserSession.getInstance().getLoggedUser()
                 .getEmail();
         try {
-            List<String> professorNrcs = this.professorController
+            List<String> professorCourses = this.professorController
                     .getNrcsByProfessorEmail(professorEmail);
-            if (professorNrcs != null) {
-                uniqueNrcs.addAll(professorNrcs);
+            if (professorCourses != null) {
+                uniqueCourses.addAll(professorCourses);
             }
         } catch (Exception exception) {
-            for (ReportCustomRow row : this.rowsMasterCachedList) {
-                if (!row.getNrc().isEmpty()) {
-                    uniqueNrcs.add(row.getNrc());
-                }
-            }
+            LOGGER.log(Level.WARNING, "Failed to populate compiled "
+                    + "course filters from session catalog context.");
         }
 
-        List<String> sortedNrcs = new ArrayList<>(uniqueNrcs);
-        Collections.sort(sortedNrcs);
+        List<String> sortedCourses = new ArrayList<>(uniqueCourses);
+        sort(sortedCourses);
         this.eeFilterComboBox.setItems(FXCollections
-                .observableArrayList(sortedNrcs));
+                .observableArrayList(sortedCourses));
         this.eeFilterComboBox.getSelectionModel().select("Todos");
 
         this.applyCombinedFilters();
