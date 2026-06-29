@@ -1157,3 +1157,73 @@ jun 29, 2026 3:42:41 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
 ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
 jun 29, 2026 3:42:41 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController loadAuthenticatedStudentAndActivities
 INFORMACIÓN: Synchronously loading initial form track contexts framework maps from core server layers.
+jun 29, 2026 3:46:24 P.M. com.sun.javafx.application.PlatformImpl startup
+ADVERTENCIA: Unsupported JavaFX configuration: classes were loaded from 'unnamed module @4759cf9c'
+jun 29, 2026 3:46:25 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:46:25 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.WelcomeViewController initialize
+INFORMACIÓN: Initiating verification of system user density in the database.
+jun 29, 2026 3:46:25 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.UserController checkSystemUserDensity
+INFORMACIÓN: Executing system user identity density check bypass transaction.
+jun 29, 2026 3:46:29 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:46:40 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLogin
+INFORMACIÓN: Executing synchronous login transaction for user email payload registry verification.
+jun 29, 2026 3:46:42 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.UserController login
+INFORMACIÓN: Successful login for: zS24013302@estudiantes.uv.mx as Estudiante
+jun 29, 2026 3:46:42 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLoginSuccess
+INFORMACIÓN: Successful login transaction executed for user: zS24013302@estudiantes.uv.mx
+jun 29, 2026 3:46:43 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController showSessionInformation
+INFORMACIÓN: Synchronously validating student dashboard session state metadata indicators.
+jun 29, 2026 3:46:49 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController handleGenerateReport
+INFORMACIÓN: Routing context towards monthly tracking wizard.
+jun 29, 2026 3:46:49 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:46:49 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController loadAuthenticatedStudentAndActivities
+INFORMACIÓN: Synchronously loading initial form track contexts framework maps from core server layers.
+jun 29, 2026 3:49:08 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController handleGeneratePdf
+INFORMACIÓN: Executing synchronous PDF processing and reports batch persistent registration pipeline.
+jun 29, 2026 3:50:41 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController handleBack
+INFORMACIÓN: Aborting current operational workspace form. Routing client stage context back to available choices view.
+jun 29, 2026 3:50:41 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:50:41 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController loadDeadlinesAndTrackingData
+INFORMACIÓN: Executing synchronous data tracking retrieval flow for students catalog details.
+jun 29, 2026 3:50:44 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController handleLoadCatalogSuccess
+INFORMACIÓN: Deliveries synchronized successfully in the UI grid context under category: Todos
+jun 29, 2026 3:50:55 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController navigateToUploadWizard
+INFORMACIÓN: Initiating sequential context transition to UploadReportView forwarding context metadata token.
+jun 29, 2026 3:50:55 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:51:07 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.UploadReportViewController handleBrowseFile
+INFORMACIÓN: Student selected local PDF file target for upload: Reporte_Mensual_1.pdf
+jun 29, 2026 3:52:48 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.UploadReportViewController navigateToCatalog
+INFORMACIÓN: Routing view screen layout context back to available options catalog view.
+jun 29, 2026 3:52:48 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:52:48 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController loadDeadlinesAndTrackingData
+INFORMACIÓN: Executing synchronous data tracking retrieval flow for students catalog details.
+jun 29, 2026 3:52:52 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController handleLoadCatalogSuccess
+INFORMACIÓN: Deliveries synchronized successfully in the UI grid context under category: Todos
+jun 29, 2026 3:53:08 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController handleBack
+INFORMACIÓN: Aborting tracking operational flow. Routing client stage context back to StudentMenuView.
+jun 29, 2026 3:53:08 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController showSessionInformation
+INFORMACIÓN: Synchronously validating student dashboard session state metadata indicators.
+jun 29, 2026 3:53:11 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:53:11 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController loadDeadlinesAndTrackingData
+INFORMACIÓN: Executing synchronous data tracking retrieval flow for students catalog details.
+jun 29, 2026 3:53:14 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController handleLoadCatalogSuccess
+INFORMACIÓN: Deliveries synchronized successfully in the UI grid context under category: Todos
+jun 29, 2026 3:53:16 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AddReportViewController handleBack
+INFORMACIÓN: Aborting tracking operational flow. Routing client stage context back to StudentMenuView.
+jun 29, 2026 3:53:16 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController showSessionInformation
+INFORMACIÓN: Synchronously validating student dashboard session state metadata indicators.
+jun 29, 2026 3:53:18 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController handleGenerateReport
+INFORMACIÓN: Routing context towards monthly tracking wizard.
+jun 29, 2026 3:53:18 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 3:53:18 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController loadAuthenticatedStudentAndActivities
+INFORMACIÓN: Synchronously loading initial form track contexts framework maps from core server layers.
+jun 29, 2026 3:53:47 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController handleGeneratePdf
+INFORMACIÓN: Executing synchronous PDF processing and reports batch persistent registration pipeline.
