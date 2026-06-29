@@ -115,4 +115,16 @@ public interface IProfessorDAO {
      * @throws DatabaseSystemException if a validation processing query crashes
      */
     boolean isCoordinator(String email) throws DatabaseSystemException;
+    
+    /**
+     * Retrieves a list of Course Reference Numbers (NRC) taught by a specific 
+     * professor, identified by their institutional email.
+     * @param email The institutional email address of the professor used to 
+     * perform the lookup within the system.
+     * @return A list of strings containing the NRCs associated with the 
+     * professor. Returns an empty list if no records are found.
+     * @throws DatabaseSystemException If a database connectivity or SQL 
+     * execution error occurs during the retrieval process.
+     */
+    List<String> getNrcsByProfessorEmail(String email) throws DatabaseSystemException;
 }

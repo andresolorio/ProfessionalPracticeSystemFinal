@@ -2,8 +2,11 @@ package mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
@@ -26,7 +29,9 @@ import mx.uv.lis.professionalpracticesystem.logic.datatransferobject.ReportDTO;
 import mx.uv.lis.professionalpracticesystem.logic.customexception.DatabaseSystemException;
 import mx.uv.lis.professionalpracticesystem.logic.utils.SystemConstants;
 import mx.uv.lis.professionalpracticesystem.graphicaluserinterface.sessionmanager.UserSession;
+import mx.uv.lis.professionalpracticesystem.logic.dataaccessobject.StudentDAO;
 import mx.uv.lis.professionalpracticesystem.logic.datatransferobject.ReportCustomRow;
+import mx.uv.lis.professionalpracticesystem.logic.datatransferobject.StudentDTO;
 
 /**
  *
@@ -57,13 +62,18 @@ public class EvaluateReportsListViewController implements Initializable {
     private Button backButton;
     @FXML
     private Button evaluateButton;
+    @FXML
+    private ComboBox<String> eeFilterComboBox;
 
     private final ProfessorController professorController;
     private List<ReportDTO> masterReportsList;
     private ObservableList<ReportCustomRow> tableRowsObservableList;
+    private List<ReportCustomRow> rowsMasterCachedList = new ArrayList<>();
+    private final StudentDAO studentDAO;
 
     public EvaluateReportsListViewController() {
         this.professorController = new ProfessorController();
+        this.studentDAO = new StudentDAO();
         this.masterReportsList = new ArrayList<>();
     }
 
@@ -80,6 +90,9 @@ public class EvaluateReportsListViewController implements Initializable {
                 .addListener(new FilterChangeListener(this));
         this.reportsTableView.getSelectionModel().selectedItemProperty()
                 .addListener(new RowSelectionChangeListener(this));
+
+        this.eeFilterComboBox.getSelectionModel().selectedItemProperty()
+                .addListener((obs, oldVal, newVal) -> this.applyCombinedFilters());
 
         this.loadAssignedReports();
     }
@@ -121,24 +134,74 @@ public class EvaluateReportsListViewController implements Initializable {
 
     public void handleLoadReportsSuccess(List<ReportDTO> reports) {
         this.masterReportsList = reports;
-        this.applyStatusFilter(this.statusFilterComboBox.getSelectionModel()
-                .getSelectedItem());
-        this.evaluateButton.setText("Evaluar Reporte");
+        this.rowsMasterCachedList.clear();
+        Set<String> uniqueNrcs = new HashSet<>();
+        uniqueNrcs.add("Todos");
+
+        for (ReportDTO report : this.masterReportsList) {
+            ReportCustomRow row = new ReportCustomRow(report);
+            try {
+                StudentDTO student = this.studentDAO
+                        .getStudentByEmail(report.getStudentEnrollment());
+                if (student != null) {
+                    String nrcString = String.valueOf(student.getNrc());
+                    row.setNrc(nrcString);
+                }
+            } catch (DatabaseSystemException exception) {
+                LOGGER.log(Level.WARNING, "Failed to join student NRC correlation.");
+            }
+            this.rowsMasterCachedList.add(row);
+        }
+
+        String professorEmail = UserSession.getInstance().getLoggedUser()
+                .getEmail();
+        try {
+            List<String> professorNrcs = this.professorController
+                    .getNrcsByProfessorEmail(professorEmail);
+            if (professorNrcs != null) {
+                uniqueNrcs.addAll(professorNrcs);
+            }
+        } catch (Exception exception) {
+            for (ReportCustomRow row : this.rowsMasterCachedList) {
+                if (!row.getNrc().isEmpty()) {
+                    uniqueNrcs.add(row.getNrc());
+                }
+            }
+        }
+
+        List<String> sortedNrcs = new ArrayList<>(uniqueNrcs);
+        Collections.sort(sortedNrcs);
+        this.eeFilterComboBox.setItems(FXCollections
+                .observableArrayList(sortedNrcs));
+        this.eeFilterComboBox.getSelectionModel().select("Todos");
+
+        this.applyCombinedFilters();
     }
 
-    public void applyStatusFilter(String selectedStatus) {
-        if (this.masterReportsList == null) {
+    public void applyCombinedFilters() {
+        if (this.rowsMasterCachedList.isEmpty()) {
             return;
         }
 
+        String selectedStatus = this.statusFilterComboBox.getValue();
+        String selectedNrc = this.eeFilterComboBox.getValue();
+
         this.tableRowsObservableList = FXCollections.observableArrayList();
-        for (ReportDTO dto : this.masterReportsList) {
-            if ("Todos".equals(selectedStatus) || dto.getReviewStatus()
-                    .equalsIgnoreCase(selectedStatus)) {
-                this.tableRowsObservableList.add(new ReportCustomRow(dto));
+        for (ReportCustomRow row : this.rowsMasterCachedList) {
+            boolean matchesStatus = "Todos".equals(selectedStatus) 
+                    || row.getRevisionStatus().equalsIgnoreCase(selectedStatus);
+            boolean matchesNrc = "Todos".equals(selectedNrc) 
+                    || row.getNrc().equals(selectedNrc);
+
+            if (matchesStatus && matchesNrc) {
+                this.tableRowsObservableList.add(row);
             }
         }
         this.reportsTableView.setItems(this.tableRowsObservableList);
+    }
+
+    public void applyStatusFilter(String selectedStatus) {
+        this.applyCombinedFilters();
     }
 
     public void handleRowSelectionChange(ReportCustomRow selectedRow) {

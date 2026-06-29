@@ -16,6 +16,7 @@ public class ReportCustomRow {
     private final String deliveryStatus;
     private final String revisionStatus;
     private final int hoursCovered;
+    private String nrc;
 
     public ReportCustomRow(ReportDTO dto) {
         this.idReport = dto.getIdReport();
@@ -31,6 +32,8 @@ public class ReportCustomRow {
         } else {
             this.formattedDate = "No registrada";
         }
+        
+        this.nrc = "";
     }
 
     public int getIdReport() {
@@ -59,5 +62,13 @@ public class ReportCustomRow {
 
     public int getHoursCovered() {
         return this.hoursCovered;
+    }
+    
+    public String getNrc() {
+        return this.nrc;
+    }
+
+    public void setNrc(String nrc) {
+        this.nrc = nrc;
     }
 }

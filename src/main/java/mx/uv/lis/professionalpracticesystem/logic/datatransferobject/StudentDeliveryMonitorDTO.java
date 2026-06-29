@@ -12,17 +12,20 @@ public class StudentDeliveryMonitorDTO {
     private String projectName;
     private int validatedReportsCount;
     private String selfEvaluationStatus;
+    private String nrc;
 
     public StudentDeliveryMonitorDTO() {
     }
 
-    public StudentDeliveryMonitorDTO(String enrollment, String fullName, String projectName,
-            int validatedReportsCount, String selfEvaluationStatus) {
+    public StudentDeliveryMonitorDTO(String enrollment, String fullName,
+            String projectName, int validatedReportsCount,
+            String selfEvaluationStatus) {
         this.enrollment = enrollment;
         this.fullName = fullName;
         this.projectName = projectName;
         this.validatedReportsCount = validatedReportsCount;
         this.selfEvaluationStatus = selfEvaluationStatus;
+        this.nrc = "";
     }
 
     public String getEnrollment() {
@@ -53,15 +56,23 @@ public class StudentDeliveryMonitorDTO {
         return validatedReportsCount;
     }
 
-    public void setValidatedReportsCount(int validatedReportsCount) {
-        this.validatedReportsCount = validatedReportsCount;
+    public void setValidatedReportsCount(int val) {
+        this.validatedReportsCount = val;
     }
 
     public String getSelfEvaluationStatus() {
         return selfEvaluationStatus;
     }
 
-    public void setSelfEvaluationStatus(String selfEvaluationStatus) {
-        this.selfEvaluationStatus = selfEvaluationStatus;
+    public void setSelfEvaluationStatus(String stat) {
+        this.selfEvaluationStatus = stat;
+    }
+
+    public String getNrc() {
+        return nrc;
+    }
+
+    public void setNrc(String nrc) {
+        this.nrc = nrc;
     }
 }

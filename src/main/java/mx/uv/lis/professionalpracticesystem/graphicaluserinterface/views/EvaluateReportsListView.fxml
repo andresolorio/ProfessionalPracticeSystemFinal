@@ -33,14 +33,28 @@
                </children>
             </VBox>
 
-            <HBox alignment="CENTER_LEFT" spacing="15.0">
+            <HBox alignment="CENTER_LEFT" spacing="25.0">
                <children>
-                  <Label text="Filtrar por Estado:">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="statusFilterComboBox" prefWidth="180.0" promptText="Todos" />
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label text="Filtrar por Estado:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="statusFilterComboBox" prefWidth="150.0" promptText="Todos" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label text="Filtrar por EE / NRC:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="eeFilterComboBox" prefWidth="180.0" promptText="Todos" />
+                     </children>
+                  </HBox>
                </children>
             </HBox>
 
