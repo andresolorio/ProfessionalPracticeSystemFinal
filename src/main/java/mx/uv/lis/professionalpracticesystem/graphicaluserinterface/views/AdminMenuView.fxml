@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AdminMenuViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="40.0" layoutY="25.0" prefHeight="600.0" prefWidth="770.0" spacing="20.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="25.0">
+         <children>
+            
+            <VBox prefWidth="690.0" spacing="5.0">
+               <children>
+                  <Label fx:id="welcomeLabel" style="-fx-font-weight: bold;" text="Bienvenido, Administrador" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-opacity: 0.6;" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="15.0" right="15.0" />
+               </VBox.margin>
+            </VBox>
+            
+            <VBox alignment="CENTER" spacing="15.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleOpenRegistration" prefHeight="40.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: #ffffff; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Registrar Nuevo Profesor">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  
+                  <Button mnemonicParsing="false" onAction="#handleOpenInactivation" prefHeight="40.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: #ffffff; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Inactivar Profesor">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  
+                  <Button mnemonicParsing="false" onAction="#handleOpenProfessorManagement" prefHeight="40.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: #ffffff; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Cambiar de Rol">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            
+            <HBox alignment="BOTTOM_RIGHT" prefWidth="690.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleLogout" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #c82333; -fx-text-fill: #ffffff; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Cerrar Sesión">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets right="15.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

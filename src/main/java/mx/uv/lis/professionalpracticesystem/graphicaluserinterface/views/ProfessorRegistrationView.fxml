@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorRegistrationViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="40.0" layoutY="25.0" prefHeight="550.0" prefWidth="770.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="25.0">
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+         <children>
+            
+            <VBox prefWidth="690.0" spacing="5.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Información del Docente" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-opacity: 0.6;" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="15.0" right="15.0" />
+               </VBox.margin>
+            </VBox>
+            
+            <GridPane hgap="25.0" vgap="12.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox spacing="5.0">
+                     <children>
+                        <HBox spacing="3.0">
+                           <children>
+                              <Label text="No. Personal:" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Label text="*" textFill="#c82333"><font><Font name="System Bold" size="13.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="staffNumberTextField" prefHeight="30.0" promptText="Ej. 123456" style="-fx-background-radius: 4; -fx-border-color: #dddddd; -fx-border-radius: 4;" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox spacing="3.0">
+                           <children>
+                              <Label text="Nombre(s):" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Label text="*" textFill="#c82333"><font><Font name="System Bold" size="13.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="firstNameTextField" prefHeight="30.0" promptText="Nombre del docente" style="-fx-background-radius: 4; -fx-border-color: #dddddd; -fx-border-radius: 4;" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0" GridPane.rowIndex="1">
+                     <children>
+                        <HBox spacing="3.0">
+                           <children>
+                              <Label text="Apellido Paterno:" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Label text="*" textFill="#c82333"><font><Font name="System Bold" size="13.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="paternalLastNameTextField" prefHeight="30.0" promptText="Apellido paterno del docente" style="-fx-background-radius: 4; -fx-border-color: #dddddd; -fx-border-radius: 4;" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Apellido Materno:" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <TextField fx:id="maternalLastNameTextField" prefHeight="30.0" promptText="Apellido materno (Opcional)" style="-fx-background-radius: 4; -fx-border-color: #dddddd; -fx-border-radius: 4;" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <children>
+                        <HBox spacing="3.0">
+                           <children>
+                              <Label text="Género:" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Label text="*" textFill="#c82333"><font><Font name="System Bold" size="13.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <ComboBox fx:id="genderComboBox" prefHeight="30.0" prefWidth="720.0" promptText="Seleccione género" style="-fx-background-radius: 4; -fx-border-color: #dddddd; -fx-border-radius: 4;" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </GridPane>
+            
+            <VBox prefWidth="690.0" spacing="5.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Información de Usuario" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-opacity: 0.6;" />
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+            
+            <GridPane hgap="25.0" vgap="12.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox spacing="5.0">
+                     <children>
+                        <HBox spacing="3.0">
+                           <children>
+                              <Label text="Correo Institucional:" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Label text="*" textFill="#c82333"><font><Font name="System Bold" size="13.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="emailTextField" prefHeight="30.0" promptText="ejemplo@uv.mx" style="-fx-background-radius: 4; -fx-border-color: #dddddd; -fx-border-radius: 4;" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox spacing="3.0">
+                           <children>
+                              <Label text="Contraseña:" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Label text="*" textFill="#c82333"><font><Font name="System Bold" size="13.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <PasswordField fx:id="passwordPasswordField" prefHeight="30.0" style="-fx-background-radius: 4; -fx-border-color: #dddddd; -fx-border-radius: 4;" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </GridPane>
+            
+            <HBox prefWidth="690.0">
+               <children>
+                  <CheckBox fx:id="isCoordinatorCheckBox" mnemonicParsing="false" text="Asignar rol de Coordinador" textFill="#444444">
+                     <font><Font size="13.0" /></font>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+               <children>
+                  <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" onAction="#handleSave" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Guardar">
+                     <font><Font size="13.0" /></font>
+                  </Button>
+                  <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #c82333; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Cancelar">
+                     <font><Font size="13.0" /></font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets right="15.0" top="15.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

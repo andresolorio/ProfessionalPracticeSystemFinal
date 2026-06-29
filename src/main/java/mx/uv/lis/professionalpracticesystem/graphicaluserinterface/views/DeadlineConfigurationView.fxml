@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.DeadlineConfigurationViewController">
+   <children>
+      <VBox alignment="CENTER" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label text="Configuración de Plazos de Entrega" textFill="#0c4c84">
+               <font>
+                  <Font name="Open Sans Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="Establezca las fechas límite para la entrega de reportes del periodo" textFill="#555555">
+               <font>
+                  <Font name="Open Sans Light" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+
+      <GridPane hgap="15.0" vgap="15.0" style="-fx-background-color: #ffffff; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" minWidth="10.0" prefWidth="150.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+          <ColumnConstraints halignment="RIGHT" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <children>
+            <Label text="Experiencia Educativa:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <font>
+                  <Font name="Open Sans Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="educationalExperienceComboBox" prefWidth="250.0" promptText="Seleccione NRC - Materia..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Tipo de reporte:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Open Sans Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="reportTypeComboBox" prefWidth="250.0" promptText="Seleccione tipo..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Fecha límite:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Open Sans Bold" size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="deadlineDatePicker" prefWidth="250.0" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Hora límite:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Open Sans Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="timeLimitTextField" promptText="23:59" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+
+      <TableView fx:id="deadlinesTableView" prefHeight="240.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="285.0">
+        <columns>
+          <TableColumn fx:id="nrcTableColumn" prefWidth="120.0" text="NRC Materia" />
+          <TableColumn fx:id="reportTypeTableColumn" prefWidth="230.0" text="Tipo de Reporte" />
+          <TableColumn fx:id="dateTableColumn" prefWidth="220.0" text="Fecha Límite" />
+          <TableColumn fx:id="statusTableColumn" prefWidth="130.0" text="Estado del Plazo" />
+        </columns>
+      </TableView>
+
+      <HBox spacing="20.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSaveDeadline" style="-fx-background-color: #00ab4f; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar Plazo" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #777777; -fx-text-fill: white;" text="Regresar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

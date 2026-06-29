@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.AssignedEducationalExperiencesViewController">
+   <children>
+      <VBox fx:id="mainContainerVBox" layoutX="40.0" layoutY="25.0" prefHeight="600.0" prefWidth="770.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="25.0">
+         <children>
+            
+            <VBox fx:id="titleVBox" spacing="4.0">
+               <children>
+                  <Label fx:id="titleLabel" style="-fx-font-weight: bold;" text="Experiencias Educativas Impartidas" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="subtitleLabel" text="Listado de experiencias educativas asignadas a su número de personal para el periodo vigente." textFill="#555555">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="5.0" />
+               </VBox.margin>
+            </VBox>
+            
+            <Separator fx:id="headerSeparator" prefWidth="200.0" style="-fx-opacity: 0.6;">
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </Separator>
+            
+            <VBox fx:id="tableContainerVBox" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="eeTableView" prefHeight="400.0" prefWidth="690.0" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="nrcTableColumn" prefWidth="130.0" text="NRC" />
+                      <TableColumn fx:id="nameTableColumn" prefWidth="410.0" text="Nombre de la EE" />
+                      <TableColumn fx:id="sectionTableColumn" prefWidth="150.0" text="Sección" />
+                    </columns>
+                  </TableView>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </VBox>
+            
+            <HBox fx:id="footerHBox" alignment="CENTER_RIGHT" prefWidth="690.0" spacing="15.0">
+               <children>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-font-weight: bold;" text="Regresar" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" right="15.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

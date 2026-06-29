@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.EducativeExperienceListViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="25.0" prefHeight="450.0" prefWidth="700.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+         <children>
+            
+            <HBox prefWidth="650.0">
+               <children>
+                  <Label text="Experiencias Educativas Registradas" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+            <TableView fx:id="experienceTableView" prefHeight="310.0" prefWidth="650.0" style="-fx-background-radius: 6; -fx-border-color: #e0e0e0; -fx-border-radius: 6; -fx-border-width: 1; -fx-selection-bar: #e6f0fa;">
+              <columns>
+                <TableColumn fx:id="nrcTableColumn" prefWidth="90.0" text="NRC" />
+                <TableColumn fx:id="nameTableColumn" prefWidth="240.0" text="Nombre de la EE" />
+                <TableColumn fx:id="sectionTableColumn" prefWidth="120.0" text="Sección" />
+                <TableColumn fx:id="professorTableColumn" prefWidth="198.0" text="Profesor Asignado" />
+              </columns>
+            </TableView>
+            
+            <HBox alignment="CENTER_LEFT" prefWidth="650.0">
+               <children>
+                  <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" prefHeight="32.0" prefWidth="110.0" style="-fx-background-color: #c82333; -fx-text-fill: #ffffff; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Cerrar">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

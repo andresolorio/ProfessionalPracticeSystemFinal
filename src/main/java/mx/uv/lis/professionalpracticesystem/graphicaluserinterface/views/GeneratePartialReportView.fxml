@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="980.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GeneratePartialReportViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="30.0" layoutY="20.0" prefHeight="610.0" prefWidth="920.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+         <padding>
+            <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+         </padding>
+         <children>
+            
+            <VBox prefWidth="740.0" spacing="5.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Formulario de Informe Parcial de Prácticas" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label text="Recuento acumulado de la bitácora de actividades correspondientes a la primera mitad de su periodo acreditado." textFill="#666666">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-opacity: 0.6;" />
+               </children>
+            </VBox>
+            
+            <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  
+                  <VBox spacing="8.0" prefWidth="550.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Historial del Cronograma de Actividades (Solo Lectura):" textFill="#444444">
+                           <font><Font size="13.0" /></font>
+                        </Label>
+                        <TableView fx:id="partialActivitiesTimelineTableView" editable="false" style="-fx-background-radius: 5; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-opacity: 0.9;" VBox.vgrow="ALWAYS">
+                          <columns>
+                            <TableColumn fx:id="partialActivityNameColumn" minWidth="150.0" prefWidth="180.0" text="Actividad" />
+                            <TableColumn fx:id="partialTimeTypeColumn" minWidth="60.0" prefWidth="65.0" text="Tiempo" />
+                            
+                            <TableColumn text="Mes 1">
+                               <columns>
+                                  <TableColumn fx:id="partialWeekOneColumn" minWidth="40.0" prefWidth="45.0" text="S1" />
+                                  <TableColumn fx:id="partialWeekTwoColumn" minWidth="40.0" prefWidth="45.0" text="S2" />
+                                  <TableColumn fx:id="partialWeekThreeColumn" minWidth="40.0" prefWidth="45.0" text="S3" />
+                                  <TableColumn fx:id="partialWeekFourColumn" minWidth="40.0" prefWidth="45.0" text="S4" />
+                               </columns>
+                            </TableColumn>
+                            
+                            <TableColumn text="Mes 2">
+                               <columns>
+                                  <TableColumn fx:id="partialWeekFiveColumn" minWidth="40.0" prefWidth="45.0" text="S5" />
+                                  <TableColumn fx:id="partialWeekSixColumn" minWidth="40.0" prefWidth="45.0" text="S6" />
+                                  <TableColumn fx:id="partialWeekSevenColumn" minWidth="40.0" prefWidth="45.0" text="S7" />
+                                  <TableColumn fx:id="partialWeekEightColumn" minWidth="40.0" prefWidth="45.0" text="S8" />
+                               </columns>
+                            </TableColumn>
+                            
+                            <TableColumn text="Mes 3">
+                               <columns>
+                                  <TableColumn fx:id="partialWeekNineColumn" minWidth="40.0" prefWidth="45.0" text="S9" />
+                                  <TableColumn fx:id="partialWeekTenColumn" minWidth="40.0" prefWidth="45.0" text="S10" />
+                                  <TableColumn fx:id="partialWeekElevenColumn" minWidth="40.0" prefWidth="45.0" text="S11" />
+                                  <TableColumn fx:id="partialWeekTwelveColumn" minWidth="40.0" prefWidth="45.0" text="S12" />
+                                </columns>
+                            </TableColumn>
+                            
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="320.0" spacing="12.0">
+                     <children>
+                        
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Horas Contabilizadas en el Periodo:" textFill="#444444">
+                                 <font><Font size="13.0" /></font>
+                              </Label>
+                              <TextField fx:id="partialReportHoursTextField" editable="false" focusTraversable="false" style="-fx-background-color: #e9ecef; -fx-background-radius: 5; -fx-border-color: #ced4da; -fx-border-radius: 5; -fx-font-weight: bold; -fx-text-fill: #495057;" text="Calculando horas desde Railway..." />
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="4.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Resultados Obtenidos al Hito Parcial: *" textFill="#444444">
+                                 <font><Font size="13.0" /></font>
+                              </Label>
+                              <TextArea fx:id="partialResultsTextArea" prefHeight="145.0" promptText="Redacte de manera global los entregables de software, módulos funcionales o infraestructura desplegada a la mitad de su periodo..." style="-fx-background-radius: 5; -fx-border-radius: 5;" wrapText="true" />
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="4.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Observaciones Técnicas o Comentarios:" textFill="#444444">
+                                 <font><Font size="13.0" /></font>
+                              </Label>
+                              <TextArea fx:id="partialObservationsTextArea" prefHeight="145.0" promptText="Registre cualquier eventualidad, contingencia de infraestructura, cambios metodológicos o ajustes en la arquitectura del sistema..." style="-fx-background-radius: 5; -fx-border-radius: 5;" wrapText="true" />
+                           </children>
+                        </VBox>
+                        
+                     </children>
+                  </VBox>
+                  
+               </children>
+            </HBox>
+            
+            <HBox alignment="CENTER_RIGHT" prefWidth="740.0" spacing="15.0">
+               <children>
+                  <Button fx:id="generatePartialPdfButton" defaultButton="true" mnemonicParsing="false" onAction="#handleGeneratePartialPdf" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Generar Informe Parcial" />
+                  <Button fx:id="partialBackButton" cancelButton="true" mnemonicParsing="false" onAction="#handlePartialBack" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Regresar" />
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

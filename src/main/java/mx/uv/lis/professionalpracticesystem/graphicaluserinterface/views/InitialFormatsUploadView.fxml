@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="620.0" prefWidth="850.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.InitialFormatsUploadViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="40.0" layoutY="25.0" prefHeight="570.0" prefWidth="770.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="25.0">
+         <children>
+            
+            <VBox prefWidth="690.0" spacing="5.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Subir Formatos Iniciales" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-opacity: 0.6;" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="15.0" right="15.0" />
+               </VBox.margin>
+            </VBox>
+            
+            <GridPane hgap="10.0" style="-fx-background-color: #fafafa; -fx-background-radius: 6; -fx-border-color: #e0e0e0; -fx-border-radius: 6;" vgap="8.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="160.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="480.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Nombre de estudiante:" textFill="#555555"><font><Font name="System Bold" size="13.0" /></font></Label>
+                  <Label fx:id="studentNameLabel" text="Nombre Completo..." textFill="#0c4c84" GridPane.columnIndex="1"><font><Font size="13.0" /></font></Label>
+                  <Label text="Matrícula de estudiante:" textFill="#555555" GridPane.rowIndex="1"><font><Font name="System Bold" size="13.0" /></font></Label>
+                  <Label fx:id="enrollmentLabel" text="SXXXXXXXX" textFill="#0c4c84" GridPane.columnIndex="1" GridPane.rowIndex="1"><font><Font size="13.0" /></font></Label>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="15.0" right="15.0" top="12.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </GridPane>
+            
+            <HBox prefWidth="690.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Carga de Documentos" textFill="#0c4c84">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+            <GridPane hgap="15.0" vgap="12.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="230.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="90.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="350.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="assignmentLetterLabel" text="1.- Oficio de Aceptación" textFill="#444444"><font><Font size="13.0" /></font></Label>
+                  <Button fx:id="browseAssignmentLetterButton" mnemonicParsing="false" onAction="#handleBrowseAcceptance" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc; -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;" text="Buscar..." GridPane.columnIndex="1" />
+                  <TextField fx:id="assignmentLetterPathTextField" editable="false" prefHeight="30.0" promptText="Seleccione un archivo PDF..." style="-fx-background-radius: 5; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-background-color: #fafafa;" GridPane.columnIndex="2" />
+                  
+                  <Label fx:id="scheduleLabel" text="2.- Horario" textFill="#444444" GridPane.rowIndex="1"><font><Font size="13.0" /></font></Label>
+                  <Button fx:id="browseScheduleButton" mnemonicParsing="false" onAction="#handleBrowseSchedule" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc; -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;" text="Buscar..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="schedulePathTextField" editable="false" prefHeight="30.0" promptText="Seleccione un archivo PDF..." style="-fx-background-radius: 5; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-background-color: #fafafa;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  
+                  <Label fx:id="insuranceCertificateLabel" text="3.- Certificado de Seguro" textFill="#444444" GridPane.rowIndex="2"><font><Font size="13.0" /></font></Label>
+                  <Button fx:id="browseInsuranceCertificateButton" mnemonicParsing="false" onAction="#handleBrowseInsurance" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc; -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;" text="Buscar..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="insuranceCertificatePathTextField" editable="false" prefHeight="30.0" promptText="Seleccione un archivo PDF..." style="-fx-background-radius: 5; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-background-color: #fafafa;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  
+                  <Label fx:id="organizationEvaluationLabel" text="4.- Evaluación Organización Vinculada" textFill="#444444" GridPane.rowIndex="3"><font><Font size="13.0" /></font></Label>
+                  <Button fx:id="browseOrganizationEvaluationButton" mnemonicParsing="false" onAction="#handleBrowseEvaluation" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc; -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;" text="Buscar..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="organizationEvaluationPathTextField" editable="false" prefHeight="30.0" promptText="Seleccione un archivo PDF..." style="-fx-background-radius: 5; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-background-color: #fafafa;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  
+                  <Label fx:id="activityScheduleLabel" text="5.- Cronograma de Actividades" textFill="#444444" GridPane.rowIndex="4"><font><Font size="13.0" /></font></Label>
+                  <Button fx:id="browseActivityScheduleButton" mnemonicParsing="false" onAction="#handleBrowseActivity" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc; -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;" text="Buscar..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="activitySchedulePathTextField" editable="false" prefHeight="30.0" promptText="Seleccione un archivo PDF..." style="-fx-background-radius: 5; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-background-color: #fafafa;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </GridPane>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+               <children>
+                  <Button fx:id="uploadFilesButton" defaultButton="true" mnemonicParsing="false" onAction="#handleUploadFiles" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Subir Archivos">
+                     <font><Font size="13.0" /></font>
+                  </Button>
+                  
+                  <Button fx:id="cancelUploadButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #c82333; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Cancelar Carga">
+                     <font><Font size="13.0" /></font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets right="15.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

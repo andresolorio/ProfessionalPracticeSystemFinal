@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateSelfEvaluationViewController">
+   <children>
+      <Label layoutX="30.0" layoutY="20.0" text="Generar Autoevaluación">
+         <font><Font name="System Bold" size="22.0" /></font>
+      </Label>
+      <TableView fx:id="criteriaTable" layoutX="30.0" layoutY="70.0" prefHeight="350.0" prefWidth="640.0">
+        <columns>
+          <TableColumn fx:id="statementColumn" prefWidth="480.0" text="Criterio de Evaluación" />
+          <TableColumn fx:id="scoreColumn" prefWidth="140.0" text="Puntaje (1-5)" />
+        </columns>
+      </TableView>
+      <Button fx:id="generateButton" disable="true" layoutX="387.0" layoutY="436.0" onAction="#handleGenerate" style="-fx-background-color: #28a745; -fx-text-fill: white;" text="Generar Autoevaluación">
+         <font><Font name="System Bold" size="14.0" /></font>
+      </Button>
+      <Button fx:id="cancelButton" layoutX="588.0" layoutY="438.0" onAction="#handleCancel" text="Cancelar" />
+   </children>
+</AnchorPane>

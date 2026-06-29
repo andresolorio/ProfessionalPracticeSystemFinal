@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.SelfEvaluationDeadlineConfigurationViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="40.0" layoutY="25.0" prefHeight="600.0" prefWidth="770.0" spacing="20.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="25.0">
+         <padding>
+            <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+         </padding>
+         <children>
+            
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label text="Configuración de Plazo de Autoevaluación" textFill="#1a4f7c">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label text="Configure la fecha límite para que los alumnos completen su cuestionario de autodesempeño." textFill="#555555">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <VBox prefWidth="690.0" spacing="15.0" style="-fx-background-color: #fafafa; -fx-border-color: #e2e8f0; -fx-border-radius: 8; -fx-background-radius: 8;">
+               <padding>
+                  <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+               </padding>
+               <children>
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="15.0">
+                     <children>
+                        <Label prefWidth="130.0" style="-fx-font-weight: bold;" text="Entregable:" textFill="#333333">
+                           <font><Font size="13.0" /></font>
+                        </Label>
+                        <Label style="-fx-font-weight: bold;" text="Autoevaluación Final de Prácticas" textFill="#1a4f7c">
+                           <font><Font size="14.0" /></font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="15.0">
+                     <children>
+                        <Label prefWidth="130.0" style="-fx-font-weight: bold;" text="Fecha límite: *" textFill="#333333">
+                           <font><Font size="13.0" /></font>
+                        </Label>
+                        <DatePicker fx:id="deadlineDatePicker" prefHeight="32.0" prefWidth="180.0" promptText="dd/mm/aaaa" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 4;" />
+                        
+                        <Label style="-fx-font-weight: bold;" text="Hora límite: *" textFill="#333333">
+                           <font><Font size="13.0" /></font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="timeTextField" prefHeight="32.0" prefWidth="110.0" promptText="23:59" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 4;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <VBox spacing="8.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Historial de plazos configurados para este entregable:" textFill="#666666">
+                     <font><Font name="System Italic" size="12.0" /></font>
+                  </Label>
+                  <TableView fx:id="deadlinesTableView" prefHeight="200.0" prefWidth="690.0" style="-fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="reportTypeColumn" prefWidth="250.0" text="Entregable" />
+                      <TableColumn fx:id="deadlineColumn" prefWidth="220.0" text="Fecha Límite Establecida" />
+                      <TableColumn fx:id="statusColumn" prefWidth="218.0" text="Estado del Plazo" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="15.0">
+               <children>
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSaveDeadline" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-font-weight: bold;" text="Guardar Plazo" />
+                  <Button fx:id="returnButton" mnemonicParsing="false" onAction="#handleReturn" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-font-weight: bold;" text="Regresar" />
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

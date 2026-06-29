@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController">
+   <children>
+      <VBox layoutX="40.0" layoutY="25.0" prefHeight="600.0" prefWidth="770.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="25.0">
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+         <children>
+            
+            <HBox alignment="CENTER_LEFT" prefWidth="690.0">
+               <children>
+                  <VBox prefWidth="350.0" spacing="5.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Menú Profesor" textFill="#0c4c84">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" prefWidth="340.0" spacing="4.0">
+                     <children>
+                        <Label fx:id="welcomeLabel" text="Bienvenido: Cargar Nombre..." textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="sessionDetailsLabel" text="Ingreso al sistema: --/--/---- --:--" textFill="#666666">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            
+            <Separator prefWidth="200.0" style="-fx-opacity: 0.6;">
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </Separator>
+            
+            <HBox spacing="25.0" VBox.vgrow="ALWAYS">
+               <children>
+                  
+                  <VBox prefWidth="350.0" spacing="12.0" style="-fx-background-color: #fafafa; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8;" HBox.hgrow="SOMETIMES">
+                     <padding>
+                        <Insets bottom="20.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Seguimiento de Alumnos y EE" textFill="#0c4c84">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator prefWidth="200.0" style="-fx-opacity: 0.4;" />
+                        
+                        <Button fx:id="verifyInitialDocumentsButton" mnemonicParsing="false" onAction="#handleVerifyInitialDocuments" prefHeight="38.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Verificar Documentos Iniciales">
+                           <font><Font size="13.0" /></font>
+                        </Button>
+                        <Button fx:id="viewAssignedEEButton" mnemonicParsing="false" onAction="#handleViewAssignedEE" prefHeight="38.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Consultar EE Impartidas">
+                           <font><Font size="13.0" /></font>
+                        </Button>
+                        <Button fx:id="checkStudentHoursButton" mnemonicParsing="false" onAction="#handleCheckStudentHours" prefHeight="38.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Monitorear Horas de Practicantes">
+                           <font><Font size="13.0" /></font>
+                        </Button>
+                        <Button fx:id="checkStudentDeliveriesButton" mnemonicParsing="false" onAction="#handleCheckStudentDeliveries" prefHeight="38.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Monitorear Entregas de Alumnos">
+                           <font><Font size="13.0" /></font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="350.0" spacing="15.0" style="-fx-background-color: #fafafa; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8;" HBox.hgrow="SOMETIMES">
+                     <padding>
+                        <Insets bottom="20.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Evaluaciones y Plazos de Entrega" textFill="#0c4c84">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator prefWidth="200.0" style="-fx-opacity: 0.4;" />
+        
+                        <Button fx:id="configureGeneralDeadlinesButton" mnemonicParsing="false" onAction="#handleConfigureGeneralDeadlines" prefHeight="45.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Configurar Plazos de Entregas">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        
+                        <Separator prefWidth="200.0" style="-fx-opacity: 0.3;" />
+        
+                        <Button fx:id="evaluateGeneralReportsButton" mnemonicParsing="false" onAction="#handleEvaluateGeneralReports" prefHeight="45.0" prefWidth="320.0" style="-fx-background-color: #0c4c84; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Evaluar Reportes y Entregas">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            
+            <HBox alignment="BOTTOM_RIGHT" prefWidth="690.0" spacing="15.0">
+               <children>
+                  <Button fx:id="backToCoordinatorMenuButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Regresar a Coordinación">
+                     <font><Font size="13.0" /></font>
+                  </Button>
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #c82333; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Cerrar Sesión">
+                     <font><Font size="13.0" /></font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" right="15.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
