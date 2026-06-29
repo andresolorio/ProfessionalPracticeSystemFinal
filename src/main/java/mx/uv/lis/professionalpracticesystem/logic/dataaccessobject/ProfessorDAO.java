@@ -1,5 +1,6 @@
 package mx.uv.lis.professionalpracticesystem.logic.dataaccessobject;
 
+import static java.lang.String.valueOf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -320,6 +321,34 @@ public class ProfessorDAO implements IProfessorDAO {
         }
     }
 
+    @Override
+    public List<String> getNrcsByProfessorEmail(String email) 
+            throws DatabaseSystemException {
+        List<String> educativeeprienceList = new ArrayList<>();
+        String query = "SELECT CONCAT(ee.nrc, ' - ', ee.nombreExperienciaEducativa) "
+                + "AS eeCompleta FROM ExperienciaEducativa ee "
+                + "INNER JOIN Profesor p ON p.numeroPersonalProfesor = "
+                + "ee.numeroPersonalProfesor WHERE p.email = ?";
+
+        try (Connection connection = this.databaseConnection.getConnection();
+                PreparedStatement statement = connection
+                .prepareStatement(query)) {
+
+            statement.setString(1, email);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    educativeeprienceList.add(resultSet.getString("eeCompleta"));
+                }
+            }
+        } catch (SQLException exception) {
+            LOGGER.log(Level.SEVERE, "Technical error fetching professor course "
+                    + "catalog details linked to session key context.");
+            throw new DatabaseSystemException("Error técnico al recuperar las "
+                    + "Experiencias Educativas impartidas.", exception);
+        }
+        return educativeeprienceList;
+    }
+    
     private ProfessorDTO mapResultSetToDTO(ResultSet resultSet) throws SQLException {
         ProfessorDTO professor = new ProfessorDTO();
         professor.setProfessorStaffNumber(resultSet.getString("numeroPersonalProfesor"));

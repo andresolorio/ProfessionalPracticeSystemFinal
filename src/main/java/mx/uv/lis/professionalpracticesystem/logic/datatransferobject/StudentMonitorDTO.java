@@ -12,6 +12,7 @@ public class StudentMonitorDTO {
     private String projectName;
     private int hoursCovered;
     private int hoursRemaining;
+    private String nrc;
 
     public StudentMonitorDTO() {
     }
@@ -23,6 +24,7 @@ public class StudentMonitorDTO {
         this.projectName = projectName;
         this.hoursCovered = hoursCovered;
         this.hoursRemaining = hoursRemaining;
+        this.nrc = "";
     }
 
     public String getEnrollment() {
@@ -63,5 +65,13 @@ public class StudentMonitorDTO {
 
     public void setHoursRemaining(int hoursRemaining) {
         this.hoursRemaining = hoursRemaining;
+    }
+    
+    public String getNrc() {
+        return this.nrc;
+    }
+
+    public void setNrc(String nrc) {
+        this.nrc = nrc;
     }
 }

@@ -1,8 +1,8 @@
 package mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
-import mx.uv.lis.professionalpracticesystem.dataaccess.DatabaseConnection;
 import mx.uv.lis.professionalpracticesystem.graphicaluserinterface.utils.AlertUtility;
 import mx.uv.lis.professionalpracticesystem.graphicaluserinterface.utils.NavigationUtility;
 import mx.uv.lis.professionalpracticesystem.graphicaluserinterface.utils.ViewConstants;
@@ -385,7 +384,7 @@ public class GenerateReportFormViewController implements Initializable {
     }
 
     @FXML
-    private void handleGeneratePdf(ActionEvent event) throws SQLException {
+    private void handleGeneratePdf(ActionEvent event) throws SQLException, DatabaseSystemException {
         String resultsText = this.resultsTextArea.getText();
         String obsText = this.observationsTextArea.getText();
         String hoursText = this.reportHoursTextField.getText();
@@ -427,8 +426,7 @@ public class GenerateReportFormViewController implements Initializable {
 
         try {
             this.generatePdfButton.setDisable(true);
-            LOGGER.log(Level.INFO, "Executing synchronous PDF processing " 
-                    + "and reports batch persistent registration pipeline.");
+            LOGGER.log(Level.INFO, "Executing local PDF compilation flow.");
 
             List<ActivityRowDTO> compiledActivities = this
                     .extractActivitiesFromGrid();
@@ -437,10 +435,7 @@ public class GenerateReportFormViewController implements Initializable {
                     .toUpperCase().trim();
             String userHome = System.getProperty("user.home");
             String destDir = userHome + java.io.File.separator + "Downloads" 
-                    + java.io.File.separator;
-            String fileName = "Reporte_Mensual_" + selectedReportNumber 
-                    + ".pdf";
-            java.io.File generatedFile = new java.io.File(destDir + fileName);
+                    + File.separator;
 
             ReportDTO mockReport = new ReportDTO();
             mockReport.setStudentEnrollment(enrollment);
@@ -459,107 +454,17 @@ public class GenerateReportFormViewController implements Initializable {
             MonthlyReportPDFGenerator generator = new MonthlyReportPDFGenerator();
             generator.generateReport(partialData, destDir);
 
-            byte[] fileBytes = null;
-            if (generatedFile.exists()) {
-                fileBytes = java.nio.file.Files.readAllBytes(
-                        generatedFile.toPath());
-            }
-
-            List<ReportDTO> pastReports = this.reportDAO
-                    .getReportsByEnrollment(enrollment);
-
-            int idReportTarget = SystemConstants.RESET;
-            for (ReportDTO report : pastReports) {
-                if (report.getReportType() != null && report.getReportType()
-                        .toLowerCase().contains("mensual") && report
-                        .getReportedHours() == selectedReportNumber) {
-                    idReportTarget = report.getIdReport();
-                    break;
-                }
-            }
-
-            if (idReportTarget == SystemConstants.RESET) {
-                ReportDTO newReport = new ReportDTO();
-                newReport.setStudentEnrollment(enrollment);
-                newReport.setReportType("Mensual");
-                newReport.setReportedHours(selectedReportNumber);
-                newReport.setDeliveryDate(new java.sql.Date(
-                        System.currentTimeMillis()));
-                newReport.setHoursCovered(parsedHours);
-                newReport.setDeliveryStatus("Vigente");
-                newReport.setReviewStatus("Pendiente");
-                newReport.setObservations(resultsText.trim());
-                newReport.setFileContent(fileBytes);
-
-                this.reportDAO.saveReport(newReport);
-
-                pastReports = this.reportDAO.getReportsByEnrollment(enrollment);
-                for (ReportDTO report : pastReports) {
-                    if (report.getReportedHours() == selectedReportNumber) {
-                        idReportTarget = report.getIdReport();
-                        break;
-                    }
-                }
-            }
-
-            if (idReportTarget != SystemConstants.RESET) {
-                List<ReportWeeklyAdvanceDTO> advancesBatch = new ArrayList<>();
-
-                for (ActivityRowDTO row : compiledActivities) {
-                    int idActivityTarget = SystemConstants.RESET;
-                    if (this.cachedProjectActivities != null) {
-                        for (ActivityDTO act : this.cachedProjectActivities) {
-                            if (act.getActivityName().equalsIgnoreCase(
-                                    row.getDescription())) {
-                                idActivityTarget = act.getIdActivity();
-                                break;
-                            }
-                        }
-                    }
-
-                    if (idActivityTarget != SystemConstants.RESET) {
-                        ReportWeeklyAdvanceDTO planDTO = 
-                                new ReportWeeklyAdvanceDTO();
-                        planDTO.setIdReport(idReportTarget);
-                        planDTO.setIdActivity(idActivityTarget);
-                        planDTO.setRegistrationType("Plan");
-                        planDTO.setWeekOne(row.isPlanWeekOne());
-                        planDTO.setWeekTwo(row.isPlanWeekTwo());
-                        planDTO.setWeekThree(row.isPlanWeekThree());
-                        planDTO.setWeekFour(row.isPlanWeekFour());
-                        advancesBatch.add(planDTO);
-
-                        ReportWeeklyAdvanceDTO realDTO = 
-                                new ReportWeeklyAdvanceDTO();
-                        realDTO.setIdReport(idReportTarget);
-                        realDTO.setIdActivity(idActivityTarget);
-                        realDTO.setRegistrationType("Real");
-                        realDTO.setWeekOne(row.isRealWeekOne());
-                        realDTO.setWeekTwo(row.isRealWeekTwo());
-                        realDTO.setWeekThree(row.isRealWeekThree());
-                        realDTO.setWeekFour(row.isRealWeekFour());
-                        advancesBatch.add(realDTO);
-                    }
-                }
-
-                try (Connection connection = new DatabaseConnection().getConnection()) {
-                    this.advanceDAO.saveWeeklyAdvances(advancesBatch, 
-                            connection);
-                }
-            }
-
-            AlertUtility.showInformationAlert("PDF Generado", "Tu reporte " 
-                    + "mensual oficial ha sido maquetado con éxito.");
+            AlertUtility.showInformationAlert("PDF Manufacturado", "Tu reporte " 
+                    + "mensual oficial ha sido guardado en la carpeta Downloads.\n\n"
+                    + "Podrás subirlo formalmente cuando los plazos estén vigentes.");
             this.clearFormFields();
             this.loadExistingDeadlines();
 
-        } catch (IOException | DatabaseSystemException exception) {
-            LOGGER.log(Level.SEVERE, "Server processing transaction pipeline " 
-                    + "engineering failure deploying final report asset.", 
+        } catch (IOException exception) {
+            LOGGER.log(Level.SEVERE, "Technical failure compiling report layout.", 
                     exception);
-            
-            AlertUtility.showErrorAlert("Error de Servidor", "Ocurrió un error " 
-                    + "al compilar la estructura interna de la entrega.");
+            AlertUtility.showErrorAlert("Error de Compilación", "Ocurrió un error " 
+                    + "al compilar la estructura interna del documento PDF.");
         } finally {
             this.generatePdfButton.setDisable(false);
         }
@@ -619,12 +524,12 @@ public class GenerateReportFormViewController implements Initializable {
     
     @FXML
     private void handleBack(ActionEvent event) {
-        LOGGER.log(Level.INFO, "Aborting current operational workspace form. " 
-                + "Routing client stage context back to available choices view.");
+        LOGGER.log(Level.INFO, "Aborting operation. Routing context back " 
+                + "to core StudentMenuView stage layout.");
 
         NavigationUtility.navigateTo(this.backButton, 
-                ViewConstants.VIEW_ADD_REPORT, 
-                SystemConstants.TITLE_REPORTS_AVAILABLE);
+                ViewConstants.VIEW_STUDENT_MENU, 
+                SystemConstants.TITLE_MENU_STUDENT);
     }
 
     private static class CheckboxCellFactory implements Callback<TableColumn<

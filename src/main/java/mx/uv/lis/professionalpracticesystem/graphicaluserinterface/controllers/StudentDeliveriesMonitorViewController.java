@@ -1,8 +1,12 @@
 package mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
+import static java.util.Collections.sort;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -11,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,7 +27,8 @@ import mx.uv.lis.professionalpracticesystem.logic.customexception.DatabaseSystem
 import mx.uv.lis.professionalpracticesystem.logic.dataaccessobject.ProfessorDAO;
 import mx.uv.lis.professionalpracticesystem.logic.dataaccessobject.StudentDAO;
 import mx.uv.lis.professionalpracticesystem.logic.datatransferobject.ProfessorDTO;
-import mx.uv.lis.professionalpracticesystem.logic.datatransferobject.StudentMonitorDTO;
+import mx.uv.lis.professionalpracticesystem.logic.datatransferobject.StudentDeliveryMonitorDTO;
+import mx.uv.lis.professionalpracticesystem.logic.datatransferobject.StudentDTO;
 import mx.uv.lis.professionalpracticesystem.logic.interfaces.IProfessorDAO;
 import mx.uv.lis.professionalpracticesystem.logic.utils.SystemConstants;
 import mx.uv.lis.professionalpracticesystem.graphicaluserinterface.sessionmanager.UserSession;
@@ -35,30 +41,34 @@ import mx.uv.lis.professionalpracticesystem.graphicaluserinterface.sessionmanage
 public class StudentDeliveriesMonitorViewController implements Initializable {
 
     private static final Logger LOGGER = Logger.getLogger(
-            StudentHoursMonitorViewController.class.getName());
+            StudentDeliveriesMonitorViewController.class.getName());
 
     @FXML
     private Label totalStudentsLabel;
     @FXML
     private Label finishedStudentsLabel;
     @FXML
-    private TableView<StudentMonitorDTO> monitorTableView;
+    private TableView<StudentDeliveryMonitorDTO> monitorTableView;
     @FXML
-    private TableColumn<StudentMonitorDTO, String> enrollmentTableColumn;
+    private TableColumn<StudentDeliveryMonitorDTO, String> enrollmentTableColumn;
     @FXML
-    private TableColumn<StudentMonitorDTO, String> nameTableColumn;
+    private TableColumn<StudentDeliveryMonitorDTO, String> nameTableColumn;
     @FXML
-    private TableColumn<StudentMonitorDTO, String> projectTableColumn;
+    private TableColumn<StudentDeliveryMonitorDTO, String> projectTableColumn;   
     @FXML
-    private TableColumn<StudentMonitorDTO, Integer> hoursCoveredTableColumn;
+    private TableColumn<StudentDeliveryMonitorDTO, Integer> validatedReportsTableColumn;
     @FXML
-    private TableColumn<StudentMonitorDTO, Integer> hoursRemainingTableColumn;
+    private TableColumn<StudentDeliveryMonitorDTO, String> selfEvaluationStatusTableColumn;
+    
+    @FXML
+    private ComboBox<String> eeFilterComboBox;
     @FXML
     private Button backButton;
 
     private final IProfessorDAO professorDAO;
     private final StudentDAO alumnoDAO;
-    private ObservableList<StudentMonitorDTO> monitorObservableList;
+    private ObservableList<StudentDeliveryMonitorDTO> monitorObservableList;
+    private List<StudentDeliveryMonitorDTO> masterProgressList = new ArrayList<>();
 
     public StudentDeliveriesMonitorViewController() {
         this.professorDAO = new ProfessorDAO();
@@ -68,6 +78,11 @@ public class StudentDeliveriesMonitorViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.configureTableViewColumns();
+        
+        this.eeFilterComboBox.getSelectionModel().selectedItemProperty()
+                .addListener((obs, oldVal, newVal) -> 
+                this.applyCourseFilter(newVal));
+                
         this.loadStudentsProgress();
     }
 
@@ -78,10 +93,10 @@ public class StudentDeliveriesMonitorViewController implements Initializable {
                 new PropertyValueFactory<>("fullName"));
         this.projectTableColumn.setCellValueFactory(
                 new PropertyValueFactory<>("projectName"));
-        this.hoursCoveredTableColumn.setCellValueFactory(
-                new PropertyValueFactory<>("hoursCovered"));
-        this.hoursRemainingTableColumn.setCellValueFactory(
-                new PropertyValueFactory<>("hoursRemaining"));
+        this.validatedReportsTableColumn.setCellValueFactory(
+                new PropertyValueFactory<>("validatedReportsCount"));
+        this.selfEvaluationStatusTableColumn.setCellValueFactory(
+                new PropertyValueFactory<>("selfEvaluationStatus"));
     }
 
     public void loadStudentsProgress() {
@@ -100,54 +115,93 @@ public class StudentDeliveriesMonitorViewController implements Initializable {
                         + "del docente activo en el contexto de la sesión.");
             }
 
-            List<StudentMonitorDTO> progressList = this.alumnoDAO
-                    .getStudentsProgressByProfessor(professor
+            List<StudentDeliveryMonitorDTO> progressList = this.alumnoDAO
+                    .getStudentsDeliveriesByProfessor(professor
                     .getProfessorStaffNumber());
 
             this.handleFetchProgressSuccess(progressList);
 
         } catch (DatabaseSystemException exception) {
-            LOGGER.log(Level.SEVERE, "Server communication pipeline failure " 
-                    + "while loading monitoring context data grids.", exception);
-            
+            LOGGER.log(Level.SEVERE, "Server communication pipeline failure.", exception);
             AlertUtility.showErrorAlert("Error de Servidor", "No se pudo " 
                     + "recuperar la información de progreso desde el servidor.");
         }
     }
-
+    
     public void handleFetchProgressSuccess(
-            List<StudentMonitorDTO> resultList) {
-        this.monitorObservableList = FXCollections
-                .observableArrayList(resultList);
-        this.monitorTableView.setItems(this.monitorObservableList);
-        this.calculateSummaryMetrics(resultList);
+            List<StudentDeliveryMonitorDTO> resultList) {
+        this.masterProgressList = resultList;
+        
+        for (StudentDeliveryMonitorDTO dto : this.masterProgressList) {
+            try {
+                StudentDTO studentDetails = this.alumnoDAO
+                        .getStudentByEnrollment(dto.getEnrollment());
+                if (studentDetails != null) {
+                    dto.setNrc(String.valueOf(studentDetails.getNrc()));
+                }
+            } catch (DatabaseSystemException exception) {
+                LOGGER.log(Level.WARNING, "Failed to resolve student NRC map "
+                        + "using sequential enrollment token link.");
+            }
+        }
+        
+        String professorEmail = UserSession.getInstance().getLoggedUser()
+                .getEmail();
+        Set<String> uniqueCourses = new HashSet<>();
+        uniqueCourses.add("Todos");
+        
+        try {
+            ProfessorDAO professorDAOImpl = new ProfessorDAO();
+            List<String> professorCourses = professorDAOImpl
+                    .getNrcsByProfessorEmail(professorEmail);
+            if (professorCourses != null) {
+                uniqueCourses.addAll(professorCourses);
+            }
+        } catch (DatabaseSystemException exception) {
+            LOGGER.log(Level.WARNING, "Failed to compile professor courses.");
+        }
+        
+        List<String> sortedCourses = new ArrayList<>(uniqueCourses);
+        sort(sortedCourses);
+        this.eeFilterComboBox.setItems(FXCollections
+                .observableArrayList(sortedCourses));
+        this.eeFilterComboBox.getSelectionModel().select("Todos");
+        
+        this.applyCourseFilter("Todos");
     }
 
-    private void calculateSummaryMetrics(List<StudentMonitorDTO> students) {
-        if (students == null) {
+    private void applyCourseFilter(String selectedCourseToken) {
+        if (this.masterProgressList == null) {
             return;
         }
 
-        int totalStudents = students.size();
-        int finishedStudentsCount = 0;
+        String targetNrc = "Todos";
+        if (selectedCourseToken != null && !"Todos".equals(selectedCourseToken)) {
+            targetNrc = selectedCourseToken.split(" - ")[0].trim();
+        }
 
-        for (StudentMonitorDTO student : students) {
-            if (student.getHoursCovered() >= SystemConstants
-                    .REQUIRED_HOURS_FINAL_REPORT) {
-                finishedStudentsCount++;
+        List<StudentDeliveryMonitorDTO> filteredList = new ArrayList<>();
+        int filteredTotal = 0;
+
+        for (StudentDeliveryMonitorDTO student : this.masterProgressList) {
+            String studentNrc = student.getNrc();
+            boolean matchesNrc = "Todos".equals(targetNrc) 
+                    || (studentNrc != null && studentNrc.equals(targetNrc));
+
+            if (matchesNrc) {
+                filteredList.add(student);
+                filteredTotal++;
             }
         }
 
-        this.totalStudentsLabel.setText(String.valueOf(totalStudents));
-        this.finishedStudentsLabel.setText(String.valueOf(
-                finishedStudentsCount));
+        this.monitorObservableList = FXCollections
+                .observableArrayList(filteredList);
+        this.monitorTableView.setItems(this.monitorObservableList);
+        this.totalStudentsLabel.setText(String.valueOf(filteredTotal));
     }
-
+    
     @FXML
     private void handleBack(ActionEvent event) {
-        LOGGER.log(Level.INFO, "Explicit back routing triggered. Returning " 
-                + "window context back to ProfessorMenuView stage layout.");
-
         NavigationUtility.navigateTo(this.backButton, 
                 ViewConstants.VIEW_PROFESSOR_MENU,
                 SystemConstants.TITLE_PROFESSOR_DASHBOARD);

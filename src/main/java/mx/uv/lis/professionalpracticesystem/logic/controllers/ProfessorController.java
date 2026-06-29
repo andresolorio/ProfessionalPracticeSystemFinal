@@ -167,4 +167,21 @@ public class ProfessorController {
             throw exception;
         }
     }
+    
+    public List<String> getNrcsByProfessorEmail(String professorEmail) 
+            throws DatabaseSystemException {
+        if (professorEmail == null || professorEmail.trim().isEmpty()) {
+            throw new DatabaseSystemException("El correo proporcionado para "
+                    + "mapear las Experiencias Educativas es inválido.");
+        }
+        try {
+            LOGGER.log(Level.INFO, "Requesting professor course catalog "
+                    + "identifiers using credentials index token.");
+            return this.professorDAO.getNrcsByProfessorEmail(professorEmail);
+        } catch (DatabaseSystemException exception) {
+            LOGGER.log(Level.SEVERE, "Business logic infrastructure failure "
+                    + "handling course tracking pipeline stream.");
+            throw exception;
+        }
+    }
 }

@@ -127,12 +127,6 @@ public final class SystemConstants {
     
     
     //ProfessorMenu
-    public static final String PATH_FXML_STUDENT_SELECTOR_VERIFICATION = "/fxml/StudentSelectorForVerificationView.fxml";
-    public static final String PATH_FXML_ASSIGNED_EE = "/fxml/AssignedEducationalExperiencesView.fxml";
-    public static final String PATH_FXML_STUDENT_HOURS_MONITOR = "/fxml/StudentHoursMonitorView.fxml";
-    public static final String PATH_FXML_STUDENT_DELIVERIES_MONITOR = "/fxml/StudentDeliveriesMonitorView.fxml";
-    public static final String PATH_FXML_DEADLINE_CONFIGURATION = "/fxml/DeadlineConfigurationView.fxml";
-    public static final String PATH_FXML_EVALUATE_REPORTS_LIST = "/fxml/EvaluateReportsListView.fxml";
     public static final String TITLE_STAGE_ASSIGNED_EE = "Sistema de Prácticas Profesionales - Experiencias Educativas Impartidas";
     public static final String TITLE_STAGE_STUDENT_HOURS = "Sistema de Prácticas Profesionales - Monitoreo de Alumnos";
     public static final String TITLE_STAGE_STUDENT_DELIVERIES = "Sistema de Prácticas Profesionales - Monitoreo de Entregas";

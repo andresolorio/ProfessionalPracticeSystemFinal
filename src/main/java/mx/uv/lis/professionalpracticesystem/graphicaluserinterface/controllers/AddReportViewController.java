@@ -188,7 +188,7 @@ public class AddReportViewController implements Initializable {
 
         try {
             if (this.currentStudent == null) {
-                AlertUtility.showErrorAlert("Error de Contexto", "No se han " 
+                AlertUtility.showErrorAlert("Error de conexión", "No se han " 
                         + "podido validar sus credenciales académicas.");
                 return;
             }
@@ -197,6 +197,31 @@ public class AddReportViewController implements Initializable {
                     .toUpperCase().trim();
             String reportType = selectedRow.getPureReportType();
             int reportNumber = selectedRow.getReportNumber();
+
+            if ("Mensual".equalsIgnoreCase(reportType) && reportNumber > 1) {
+                int expectedPreviousNumber = reportNumber - 1;
+                boolean foundPrevious = false;
+                
+                List<ReportDTO> studentReports = this.reportDAO
+                        .getReportsByEnrollment(studentEnrollment);
+                
+                for (ReportDTO report : studentReports) {
+                    if ("Mensual".equalsIgnoreCase(report.getReportType()) 
+                            && report.getReportedHours() 
+                            == expectedPreviousNumber) {
+                        foundPrevious = true;
+                        break;
+                    }
+                }
+                
+                if (!foundPrevious) {
+                    AlertUtility.showWarningAlert("Entrega Bloqueada", 
+                            "No puede subir el Reporte Mensual " + reportNumber 
+                            + " debido a que no ha entregado la versión " 
+                            + expectedPreviousNumber + " en el sistema.");
+                    return;
+                }
+            }
 
             ReportDAO checkDAO = new ReportDAO();
             boolean alreadyExists = checkDAO.isReportSubmitted(
@@ -222,7 +247,7 @@ public class AddReportViewController implements Initializable {
 
         } catch (DatabaseSystemException exception) {
             LOGGER.log(Level.SEVERE, "Technical error checking previous " 
-                    + "report submission status data mapping.", exception);
+                    + "report submission status data mapping.");
             
             AlertUtility.showErrorAlert("Error de Servidor", "No se pudo " 
                     + "validar el estado de las entregas en el servidor.");
