@@ -1309,3 +1309,127 @@ jun 29, 2026 4:43:23 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinte
 INFORMACIÓN: Requesting assigned student reports stream synchronously from server layers.
 jun 29, 2026 4:43:27 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.ProfessorController getNrcsByProfessorEmail
 INFORMACIÓN: Requesting professor course catalog identifiers using credentials index token.
+jun 29, 2026 4:45:39 P.M. com.sun.javafx.application.PlatformImpl startup
+ADVERTENCIA: Unsupported JavaFX configuration: classes were loaded from 'unnamed module @383bd95'
+jun 29, 2026 4:45:39 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:45:39 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.WelcomeViewController initialize
+INFORMACIÓN: Initiating verification of system user density in the database.
+jun 29, 2026 4:45:39 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.UserController checkSystemUserDensity
+INFORMACIÓN: Executing system user identity density check bypass transaction.
+jun 29, 2026 4:45:43 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:45:54 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLogin
+INFORMACIÓN: Executing synchronous login transaction for user email payload registry verification.
+jun 29, 2026 4:46:11 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLogin
+INFORMACIÓN: Executing synchronous login transaction for user email payload registry verification.
+jun 29, 2026 4:46:13 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.UserController login
+INFORMACIÓN: Successful login for: zS24013302@estudiantes.uv.mx as Estudiante
+jun 29, 2026 4:46:13 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLoginSuccess
+INFORMACIÓN: Successful login transaction executed for user: zS24013302@estudiantes.uv.mx
+jun 29, 2026 4:46:14 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController showSessionInformation
+INFORMACIÓN: Synchronously validating student dashboard session state metadata indicators.
+jun 29, 2026 4:46:25 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController handleGenerateReport
+INFORMACIÓN: Routing context towards monthly tracking wizard.
+jun 29, 2026 4:46:25 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:46:25 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController loadAuthenticatedStudentAndActivities
+INFORMACIÓN: Synchronously loading initial form track contexts framework maps from core server layers.
+jun 29, 2026 4:48:20 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.GenerateReportFormViewController handleBack
+INFORMACIÓN: Aborting operation. Routing context back to core StudentMenuView stage layout.
+jun 29, 2026 4:48:20 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController showSessionInformation
+INFORMACIÓN: Synchronously validating student dashboard session state metadata indicators.
+jun 29, 2026 4:48:22 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentMenuViewController handleLogout
+INFORMACIÓN: Explicit student logout flow requested.
+jun 29, 2026 4:48:22 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:48:30 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLogin
+INFORMACIÓN: Executing synchronous login transaction for user email payload registry verification.
+jun 29, 2026 4:48:32 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.UserController login
+INFORMACIÓN: Successful login for: angesanchez@uv.mxx as Coordinador
+jun 29, 2026 4:48:32 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLoginSuccess
+INFORMACIÓN: Successful login transaction executed for user: angesanchez@uv.mxx
+jun 29, 2026 4:48:37 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:48:45 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.CoordinatorMenuViewController executeRoleSwitchSequence
+INFORMACIÓN: Coordinating context switch: Transferring coordinator workspace layout into ProfessorMenuView.
+jun 29, 2026 4:48:45 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:48:45 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController loadUserSessionData
+INFORMACIÓN: Synchronously validating professor dashboard session state metadata indicators.
+jun 29, 2026 4:48:46 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController loadUserSessionData
+INFORMACIÓN: Professor session context loaded successfully for user: angesanchez@uv.mxx
+jun 29, 2026 4:48:47 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController handleEvaluateGeneralReports
+INFORMACIÓN: User triggered redirection context routing to Evaluate General Reports List workspace view layout.
+jun 29, 2026 4:48:47 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.EvaluateReportsListViewController loadAssignedReports
+INFORMACIÓN: Requesting assigned student reports stream synchronously from server layers.
+jun 29, 2026 4:48:51 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.ProfessorController getNrcsByProfessorEmail
+INFORMACIÓN: Requesting professor course catalog identifiers using credentials index token.
+jun 29, 2026 4:48:55 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.EvaluateReportsListViewController handleEvaluate
+INFORMACIÓN: Launching report evaluation wizard view as a synchronous modal window constraint context.
+jun 29, 2026 4:48:55 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ReportEvaluationWizardViewController loadProjectChecklist
+INFORMACIÓN: Fetching project activities checklist synchronously from the server repository.
+jun 29, 2026 4:49:17 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ReportEvaluationWizardViewController handleSubmitEvaluation
+INFORMACIÓN: Submitting evaluation and checklist synchronously to the core server repository.
+jun 29, 2026 4:49:19 P.M. mx.uv.lis.professionalpracticesystem.logic.dataaccessobject.ReportDAO updateReportEvaluation
+INFORMACIÓN: Hours successfully aggregated on Alumno records for enrollment token: S24013302
+jun 29, 2026 4:49:19 P.M. mx.uv.lis.professionalpracticesystem.logic.dataaccessobject.ReportDAO updateReportEvaluation
+INFORMACIÓN: Evaluation transaction pipeline processed successfully on cloud repository storage.
+jun 29, 2026 4:49:19 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.ProfessorController evaluateStudentReport
+INFORMACIÓN: Report evaluation successfully dispatched for ID: 5
+jun 29, 2026 4:49:22 P.M. mx.uv.lis.professionalpracticesystem.logic.utils.EmailManager sendReportEvaluationEmail
+INFORMACIÓN: Evaluation report email status successfully sent to: zS24013302@estudiantes.uv.mx
+jun 29, 2026 4:49:22 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ReportEvaluationWizardViewController handleSubmitEvaluation
+INFORMACIÓN: Sending batch processing of 3 activities to the server.
+jun 29, 2026 4:49:26 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.EvaluateReportsListViewController handleEvaluate
+INFORMACIÓN: Modal wizard closed. Triggering automatic sequential synchronization pipeline layout.
+jun 29, 2026 4:49:26 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.EvaluateReportsListViewController loadAssignedReports
+INFORMACIÓN: Requesting assigned student reports stream synchronously from server layers.
+jun 29, 2026 4:49:30 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.ProfessorController getNrcsByProfessorEmail
+INFORMACIÓN: Requesting professor course catalog identifiers using credentials index token.
+jun 29, 2026 4:57:27 P.M. com.sun.javafx.application.PlatformImpl startup
+ADVERTENCIA: Unsupported JavaFX configuration: classes were loaded from 'unnamed module @4759cf9c'
+jun 29, 2026 4:57:27 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:57:27 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.WelcomeViewController initialize
+INFORMACIÓN: Initiating verification of system user density in the database.
+jun 29, 2026 4:57:27 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.UserController checkSystemUserDensity
+INFORMACIÓN: Executing system user identity density check bypass transaction.
+jun 29, 2026 4:57:33 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:57:42 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLogin
+INFORMACIÓN: Executing synchronous login transaction for user email payload registry verification.
+jun 29, 2026 4:57:44 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.UserController login
+INFORMACIÓN: Successful login for: angesanchez@uv.mxx as Coordinador
+jun 29, 2026 4:57:44 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.LoginViewController handleLoginSuccess
+INFORMACIÓN: Successful login transaction executed for user: angesanchez@uv.mxx
+jun 29, 2026 4:57:45 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:57:50 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.CoordinatorMenuViewController executeRoleSwitchSequence
+INFORMACIÓN: Coordinating context switch: Transferring coordinator workspace layout into ProfessorMenuView.
+jun 29, 2026 4:57:50 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:57:50 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController loadUserSessionData
+INFORMACIÓN: Synchronously validating professor dashboard session state metadata indicators.
+jun 29, 2026 4:57:51 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController loadUserSessionData
+INFORMACIÓN: Professor session context loaded successfully for user: angesanchez@uv.mxx
+jun 29, 2026 4:57:57 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController handleEvaluateGeneralReports
+INFORMACIÓN: User triggered redirection context routing to Evaluate General Reports List workspace view layout.
+jun 29, 2026 4:57:57 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.EvaluateReportsListViewController loadAssignedReports
+INFORMACIÓN: Requesting assigned student reports stream synchronously from server layers.
+jun 29, 2026 4:58:01 P.M. mx.uv.lis.professionalpracticesystem.logic.controllers.ProfessorController getNrcsByProfessorEmail
+INFORMACIÓN: Requesting professor course catalog identifiers using credentials index token.
+jun 29, 2026 4:58:16 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.EvaluateReportsListViewController handleBack
+INFORMACIÓN: Explicit back routing window execution. Routing client contexts screen back to ProfessorMenuView.
+jun 29, 2026 4:58:16 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:58:16 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController loadUserSessionData
+INFORMACIÓN: Synchronously validating professor dashboard session state metadata indicators.
+jun 29, 2026 4:58:17 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController loadUserSessionData
+INFORMACIÓN: Professor session context loaded successfully for user: angesanchez@uv.mxx
+jun 29, 2026 4:58:34 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.ProfessorMenuViewController handleCheckStudentDeliveries
+INFORMACIÓN: User triggered redirection context routing to Student Deliveries Monitor window pipeline workspace.
+jun 29, 2026 4:58:34 P.M. javafx.fxml.FXMLLoader$ValueElement processValue
+ADVERTENCIA: Loading FXML document with JavaFX API of version 26 by JavaFX runtime of version 21
+jun 29, 2026 4:58:34 P.M. mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers.StudentDeliveriesMonitorViewController loadStudentsProgress
+INFORMACIÓN: Initiating synchronous retrieval flow for dashboard monitoring progress indicators.

@@ -2,7 +2,6 @@ package mx.uv.lis.professionalpracticesystem.graphicaluserinterface.controllers;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import static java.util.Collections.sort;
 import java.util.HashSet;
 import java.util.List;
@@ -182,14 +181,20 @@ public class EvaluateReportsListViewController implements Initializable {
         }
 
         String selectedStatus = this.statusFilterComboBox.getValue();
-        String selectedNrc = this.eeFilterComboBox.getValue();
+        String selectedCourseToken = this.eeFilterComboBox.getValue();
+
+        String targetNrc = "Todos";
+        if (selectedCourseToken != null && !"Todos".equals(selectedCourseToken)) {
+            targetNrc = selectedCourseToken.split(" - ")[0].trim();
+        }
 
         this.tableRowsObservableList = FXCollections.observableArrayList();
         for (ReportCustomRow row : this.rowsMasterCachedList) {
             boolean matchesStatus = "Todos".equals(selectedStatus) 
                     || row.getRevisionStatus().equalsIgnoreCase(selectedStatus);
-            boolean matchesNrc = "Todos".equals(selectedNrc) 
-                    || row.getNrc().equals(selectedNrc);
+                    
+            boolean matchesNrc = "Todos".equals(targetNrc) 
+                    || (row.getNrc() != null && row.getNrc().equals(targetNrc));
 
             if (matchesStatus && matchesNrc) {
                 this.tableRowsObservableList.add(row);
